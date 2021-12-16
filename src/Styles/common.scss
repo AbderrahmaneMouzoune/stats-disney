@@ -1,0 +1,19 @@
+@import './variable';
+@import './Functions/global.scss';
+@import './Components/_box.scss';
+
+body {
+    background-color: hsl(210deg, 17%, 98%);
+
+    font-family: sans-serif;
+    color: $font-color;
+    font-family: $font-family-text;
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*::before,
+*::after {
+    @include box-sizing('border-box');
+}

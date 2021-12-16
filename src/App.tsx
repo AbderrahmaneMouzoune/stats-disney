@@ -1,5 +1,8 @@
+import './Styles/Common.scss'
+import SideBar from './Layout/Sidebar/Sidebar'
+
 function App() {
-  return <h1>Entry point</h1>
+    return <SideBar />
 }
 
 export default App

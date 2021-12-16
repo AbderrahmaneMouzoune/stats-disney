@@ -7,11 +7,14 @@ module.exports = {
     devServer: {
         hot: true,
         open: true,
+        port: 3000,
     },
     plugins: [
-        new ReactRefreshWebpackPlugin(),
+        new ReactRefreshWebpackPlugin({
+            overlay: false,
+        }),
         new webpack.DefinePlugin({
-            'process.env.name': JSON.stringify('Vishwas'),
+            'process.env.name': JSON.stringify('Skelbraz'),
         }),
     ],
 }
