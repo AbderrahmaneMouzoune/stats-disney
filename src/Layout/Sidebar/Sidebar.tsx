@@ -1,8 +1,10 @@
-import './Sidebar.module.scss'
+import './Sidebar.scss'
 import React from 'react'
 import { NavItem, NavLink, Nav } from 'reactstrap'
 import classNames from 'classnames'
 import { Link } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChartLine, faFile } from '@fortawesome/free-solid-svg-icons'
 
 interface ISidebar {
     isOpen?: boolean
@@ -11,29 +13,28 @@ interface ISidebar {
 
 function SideBar({ isOpen, toggle }: ISidebar) {
     return (
-        <div className={classNames('sidebar box', { 'is-open': isOpen })}>
+        <aside className={classNames('sidebar box', { 'is-open': isOpen })}>
             <div className="sidebar-header">
-                <span color="info" onClick={toggle} style={{ color: '#fff' }}>
-                    &times;
-                </span>
                 <h3>{'APPNAME'}</h3>
             </div>
-            <div className="side-menu">
-                <Nav vertical className="list-unstyled pb-3">
-                    <p>Dummy Heading</p>
+            <hr />
+            <div className="sidebar-menu">
+                <Nav>
                     <NavItem>
                         <NavLink tag={Link} to={'/stats'}>
-                            Dashboard
+                            <FontAwesomeIcon icon={faChartLine} />
+                            <span className={"nav-link-text"}>Dashboard</span>
                         </NavLink>
                     </NavItem>
                     <NavItem>
                         <NavLink tag={Link} to={'/files'}>
-                            Fichiers
+                            <FontAwesomeIcon icon={faFile} />
+                            <span className={"nav-link-text"}>Fichiers</span>
                         </NavLink>
                     </NavItem>
                 </Nav>
             </div>
-        </div>
+        </aside>
     )
 }
 

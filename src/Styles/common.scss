@@ -1,11 +1,12 @@
 @import './variable';
 @import './Functions/global.scss';
-@import './Components/_box.scss';
+@import './Components/global.scss';
 
 body {
     background-color: hsl(210deg, 17%, 98%);
 
     font-family: sans-serif;
+    font-size: 1rem;
     color: $font-color;
     font-family: $font-family-text;
     margin: 0;
@@ -16,4 +17,10 @@ body {
 *::before,
 *::after {
     @include box-sizing('border-box');
+}
+
+hr {
+    @include opacity(.25);
+    height: 1px;
+    margin: 1rem 0;
 }

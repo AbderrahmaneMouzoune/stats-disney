@@ -1,0 +1,10 @@
+ul {
+    @include flexbox();
+    @include flex-direction(column);
+    @include reset-list();
+}
+
+li {
+    @include reset-list();
+    width: 100%;
+}

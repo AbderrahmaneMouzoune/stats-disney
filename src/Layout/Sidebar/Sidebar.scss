@@ -1,0 +1,101 @@
+@import '../../Styles/Functions/global.scss';
+@import '../../Styles/_variable.scss';
+
+main {
+    margin-left: 8rem;
+    @include transition(all ease-in-out .1s);
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    max-width: 15.625rem;
+    padding: 0;
+    overflow: hidden;
+    overflow-anchor: none;
+    z-index: 990;
+    margin: 1rem 0 1rem 1rem;
+    width: 5.725rem;
+
+    @include flexbox();
+    @include flex-wrap(wrap);
+    @include align-content(flex-start);
+    @include justify-content(flex-start);
+    @include align-items(flex-start);
+    @include transition(all .1s ease-in-out);
+
+
+    // Separator
+    hr {
+        margin: 0 1rem;
+        width: 100%;
+    }
+
+    // Header
+    &-header {
+        width: 100%;
+        text-align: center;
+
+        h3 {
+            margin: 1rem;
+        }
+    }
+
+
+    // Menu
+    &-menu {
+        width: 100%;
+        margin-top: .25rem;
+    }
+
+    .nav-link {
+        background-color: $background-base;
+        font-weight: 500;
+        padding: 13px;
+        margin: 0 1rem;
+        font-family: $font-family-title;
+        color: $font-color-light;
+
+        @include border-radius(.25rem);
+        @include flexbox();
+
+        &:hover {
+            background-color: lighten($primary, 20%);
+            color: $primary;
+        }
+
+
+        .nav-link-text {
+            width: 0;
+            opacity: 0;
+            @include transition(all ease-in-out .2s);
+        }
+
+        svg {
+            @include flex(1);
+        }
+    }
+
+
+
+    &-is-active, &:hover {
+        width: 100%;
+
+        &+main {
+            margin-left: 18.5rem;
+            @include transition(all ease-in-out .2s);
+        }
+
+
+        .nav-link {
+            &-text {
+                opacity: 1;
+                width: fit-content;
+                margin-left: .7rem;
+                @include flex(1);
+                @include transition(all ease-in-out .2s);
+            }
+        }
+    }
+}
