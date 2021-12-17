@@ -1,11 +1,8 @@
 import './TotalSale.scss'
-import React, { useState } from 'react'
 import { Col, Row } from 'reactstrap'
 import Chart from 'react-apexcharts'
 
-interface ITotalSale {}
-
-function TotalSale({}: ITotalSale) {
+function TotalSale({}) {
     return (
         <div className={'box'}>
             <Row className={'card-header'}>
@@ -14,7 +11,7 @@ function TotalSale({}: ITotalSale) {
                     <h4 className={'card-text'}>$3654.00</h4>
                     <p className={'card-text'}>Compare to last week</p>
                 </Col>
-                <Col xl={3} lg={4} xs={3} className='card-align-right'>
+                <Col xl={3} lg={4} xs={3} className="card-align-right">
                     <h6 className={'txt-sucess'}>65%</h6>
                 </Col>
             </Row>

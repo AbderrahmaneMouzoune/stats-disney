@@ -8,12 +8,15 @@ import { faChartLine, faFile } from '@fortawesome/free-solid-svg-icons'
 
 interface ISidebar {
     isOpen?: boolean
-    toggle?: React.MouseEventHandler<HTMLSpanElement> | undefined
 }
 
-function SideBar({ isOpen, toggle }: ISidebar) {
+function SideBar({ isOpen }: ISidebar) {
     return (
-        <aside className={classNames('sidebar box', { 'is-open': isOpen })}>
+        <aside
+            className={classNames('sidebar box', {
+                'sidebar-is-active': isOpen,
+            })}
+        >
             <div className="sidebar-header">
                 <h3>{'APPNAME'}</h3>
             </div>
