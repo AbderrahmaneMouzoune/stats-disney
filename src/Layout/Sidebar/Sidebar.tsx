@@ -23,13 +23,13 @@ function SideBar({ isOpen, toggle }: ISidebar) {
                     <NavItem>
                         <NavLink tag={Link} to={'/stats'}>
                             <FontAwesomeIcon icon={faChartLine} />
-                            <span className={"nav-link-text"}>Dashboard</span>
+                            <span className={'nav-link-text'}>Dashboard</span>
                         </NavLink>
                     </NavItem>
                     <NavItem>
                         <NavLink tag={Link} to={'/files'}>
                             <FontAwesomeIcon icon={faFile} />
-                            <span className={"nav-link-text"}>Fichiers</span>
+                            <span className={'nav-link-text'}>Fichiers</span>
                         </NavLink>
                     </NavItem>
                 </Nav>

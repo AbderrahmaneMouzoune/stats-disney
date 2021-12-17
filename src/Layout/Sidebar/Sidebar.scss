@@ -3,6 +3,7 @@
 
 main {
     margin-left: 8rem;
+    margin-top: 1rem;
     @include transition(all ease-in-out .1s);
 }
 
@@ -55,7 +56,7 @@ main {
         padding: 13px;
         margin: 0 1rem;
         font-family: $font-family-title;
-        color: $font-color-light;
+        color: $font-color;
 
         @include border-radius(.25rem);
         @include flexbox();
