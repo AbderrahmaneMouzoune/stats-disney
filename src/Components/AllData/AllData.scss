@@ -1,0 +1,87 @@
+@import '@fortawesome/fontawesome-free/css/all.min.css';
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
+@import "node_modules/bootstrap/scss/tables";
+@import "node_modules/bootstrap/scss/pagination";
+@import '../../Styles/base-component.scss';
+@import '../../Styles/Components/box';
+
+$table-border-color: #ecf3fa;
+
+.all-data {
+    margin: 2rem 0;
+
+    .pagination {
+        @include flex-direction(row);
+
+        .page-item {
+            width: fit-content;
+        }
+    }
+
+    // Table
+
+    .dt-bootstrap4 {
+        @extend %box !optional;
+        padding: 1rem;
+    }
+
+    .table thead th,
+    .table>:not(caption)>*>* {
+        border-bottom: 1px solid $table-border-color;
+    }
+
+    .table thead th {
+        border-right: 1px solid $table-border-color;
+        user-select: none;
+        text-transform: uppercase;
+
+        &:last-child {
+            border-right: none;
+        }
+    }
+
+    table.mdb-dataTable thead .sorting:after,
+    table.mdb-dataTable thead .sorting_asc:after,
+    table.mdb-dataTable thead .sorting_desc:after,
+    table.mdb-dataTable thead .sorting_asc_disabled:after,
+    table.mdb-dataTable thead .sorting_desc_disabled:after,
+    table thead.mdb-dataTable-head .sorting:after,
+    table thead.mdb-dataTable-head .sorting_asc:after,
+    table thead.mdb-dataTable-head .sorting_desc:after,
+    table thead.mdb-dataTable-head .sorting_asc_disabled:after,
+    table thead.mdb-dataTable-head .sorting_desc_disabled:after,
+    table.mdb-dataTable thead .sorting:before,
+    table.mdb-dataTable thead .sorting_asc:before,
+    table.mdb-dataTable thead .sorting_desc:before,
+    table.mdb-dataTable thead .sorting_asc_disabled:before,
+    table.mdb-dataTable thead .sorting_desc_disabled:before,
+    table thead.mdb-dataTable-head .sorting:before,
+    table thead.mdb-dataTable-head .sorting_asc:before,
+    table thead.mdb-dataTable-head .sorting_desc:before,
+    table thead.mdb-dataTable-head .sorting_asc_disabled:before,
+    table thead.mdb-dataTable-head .sorting_desc_disabled:before {
+        left: 1rem;
+    }
+
+    .d-flex {
+        @include flexbox();
+    }
+
+    .align-items-center {
+        @include align-items(center);
+    }
+
+    .justify-content-end {
+        @include justify-content(end);
+    }
+
+    .justify-content-between {
+        @include justify-content(space-between);
+    }
+
+    .w-100 {
+        width: 100%;
+    }
+}

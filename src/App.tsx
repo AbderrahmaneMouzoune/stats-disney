@@ -2,14 +2,9 @@ import './Styles/common.scss'
 import SideBar from './Layout/Sidebar/Sidebar'
 import { Col, Container, Row } from 'reactstrap'
 import TotalSale from './Components/TotalSale/TotalSale'
-import { MDBDataTableV5 } from 'mdbreact'
-import Sales from '../static/data.json'
-import { useState } from 'react'
+import AllData from './Components/AllData/Alldata'
 
 function App() {
-
-    const [dataTable, setDataTable] = useState(Sales)
-
     return (
         <>
             <SideBar />
@@ -27,12 +22,8 @@ function App() {
                             <TotalSale />
                         </Col>
                     </Row>
-                    <Row>
-                        <Col xs={12}>
-                            <MDBDataTableV5 hover entriesOptions={[5, 20, 25]} entries={5} pagesAmount={4} data={dataTable} />;
-                        </Col>
-                    </Row>
                 </Container>
+                <AllData />
             </main>
         </>
     )

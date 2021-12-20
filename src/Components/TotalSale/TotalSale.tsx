@@ -5,19 +5,18 @@ import Data from '../../../static/data.json'
 import Formatter from '../../config'
 
 function TotalSale({}) {
-
     const totalPrice = getTotal()
 
     return (
         <div className={'box'}>
             <Row className={'card-header'}>
                 <Col xl={9} lg={8} xs={9}>
-                    <h6 className={'card-text'}>Total Sale</h6>
+                    <h6 className={'card-text'}>Vente sur les 7 derniers jours</h6>
                     <h4 className={'card-text'}>{Formatter.format(totalPrice)}</h4>
-                    <p className={'card-text'}>Compare to last week</p>
+                    <small>* Par rapport aux 7 derniers jours</small>
                 </Col>
                 <Col xl={3} lg={4} xs={3} className="card-align-right">
-                    <h6 className={'txt-sucess'}>65%</h6>
+                    <h6 className={'txt-sucess'}>65%<small><sup>*</sup></small></h6>
                 </Col>
             </Row>
             <div className={'card-graph'}>
@@ -27,16 +26,13 @@ function TotalSale({}) {
                             id: 'basic-bar',
                         },
                         xaxis: {
-                            categories: [
-                                1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998,
-                                1999,
-                            ],
+                            categories: getLast7days(),
                         },
                     }}
                     series={[
                         {
                             name: 'series-1',
-                            data: [30, 40, 45, 50, 49, 60, 70, 91],
+                            data: getValueLast7Days(),
                         },
                     ]}
                     type="area"
@@ -46,9 +42,33 @@ function TotalSale({}) {
     )
 }
 
-function getTotal() : number {
+function getTotal(): number {
+    const sales = Data
+    return Number(
+        sales
+            .reduce(
+                (sum, { AllocatedAmount }: { AllocatedAmount: number }) =>
+                    sum + AllocatedAmount,
+                0
+            )
+            .toFixed(2)
+    )
+}
+
+function getLast7days() : string[] {
     const sales = Data;
-    return Number(sales.reduce( ( sum, { AllocatedAmount } : { AllocatedAmount: number } ) => sum + AllocatedAmount , 0).toFixed(2))
+
+    return sales.slice(-7).map(sale => {
+        return sale.CreationDate;
+    });
+}
+
+function getValueLast7Days() : number[] {
+    const sales = Data;
+
+    return sales.slice(-7).map(sale => {
+        return sale.AllocatedAmount;
+    });
 }
 
 export default TotalSale
