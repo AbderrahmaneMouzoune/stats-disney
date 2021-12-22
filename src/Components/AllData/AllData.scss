@@ -84,4 +84,12 @@ $table-border-color: #ecf3fa;
     .w-100 {
         width: 100%;
     }
+
+    div.mdb-datatable div.mdb-datatable-filter input {
+        padding: .5rem;
+        @include border-radius(.5rem);
+        border: 1px solid $table-border-color;
+        outline-color: $primary;
+        color: $primary;
+    }
 }

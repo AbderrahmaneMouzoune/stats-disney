@@ -12,7 +12,7 @@ function TotalSale({}) {
             <Row className={'card-header'}>
                 <Col xl={9} lg={8} xs={9}>
                     <h6 className={'card-text'}>Vente sur les 7 derniers jours</h6>
-                    <h4 className={'card-text'}>{Formatter.format(totalPrice)}</h4>
+                    <h4 className={'card-text'}>{Formatter.currency.format(totalPrice)}</h4>
                     <small>* Par rapport aux 7 derniers jours</small>
                 </Col>
                 <Col xl={3} lg={4} xs={3} className="card-align-right">

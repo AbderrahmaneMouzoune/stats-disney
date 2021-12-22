@@ -2,13 +2,13 @@ import './AllData.scss'
 import { MDBDataTableV5 } from 'mdbreact'
 import { useState } from 'react'
 import { Container, Row, Col } from 'reactstrap'
-import { Columns } from '../../config'
+import Formatter, { Columns, Status } from '../../config'
 import Sales from '../../../static/data.json'
 
 function AllData() {
     const [dataTable, setDataTable] = useState({
         columns: Columns,
-        rows: Sales,
+        rows: formatSales(),
     })
 
     return (
@@ -27,6 +27,28 @@ function AllData() {
             </Row>
         </Container>
     )
+}
+
+interface IDataFormatted {
+    BookingId: number;
+    CreationDate: string;
+    AllocatedAmount: string;
+    Status: Status;
+    Score: number
+}
+
+function formatSales() : IDataFormatted[] {
+    // Sales : IData
+    // @ts-ignore
+    return Sales.map((sale) => {
+        return {
+            BookingId: sale.BookingId,
+            CreationDate: `${sale.CreationDate} (${Formatter.date.format(new Date(sale.CreationDate))})`,
+            AllocatedAmount: Formatter.currency.format(sale.AllocatedAmount),
+            Status: sale.Status,
+            Score: sale.Score
+        };
+    })
 }
 
 export default AllData

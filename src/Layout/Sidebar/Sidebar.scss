@@ -80,19 +80,19 @@ main {
 
 
     &-is-active, &:hover {
-        width: 100%;
+        width: 100% !important;
 
         &+main {
-            margin-left: 18.5rem;
+            margin-left: 18.5rem !important;
             @include transition(all ease-in-out .2s);
         }
 
 
         .nav-link {
             &-text {
-                opacity: 1;
-                width: fit-content;
-                margin-left: .7rem;
+                opacity: 1 !important;
+                width: fit-content !important;
+                margin-left: .7rem !important;
                 @include flex(1);
                 @include transition(all ease-in-out .2s);
             }

@@ -1,9 +1,15 @@
-const Formatter = new Intl.NumberFormat('fr-FR', {
+import { AriaAttributes } from "react"
+
+const currency = new Intl.NumberFormat('fr-FR', {
     style: 'currency',
     currency: 'EUR',
 })
 
-type Status = 'Approved' | 'Declined'
+const date = new Intl.DateTimeFormat('fr-FR', { 
+    dateStyle: 'full', 
+})
+
+export type Status = 'Approved' | 'Declined'
 
 export interface IData {
     BookingId: number
@@ -34,7 +40,16 @@ export interface IData {
     custom15: any
 }
 
-export const Columns = [
+type Sort = "asc" | "desc" | "disabled"
+
+interface IColumns {
+    label: string;
+    field: string;
+    sort?: Sort;
+    attributes?: AriaAttributes
+}
+
+export const Columns :IColumns[] = [
     {
         label: 'ID',
         field: 'BookingId',
@@ -58,5 +73,10 @@ export const Columns = [
         field: 'Score',
     },
 ]
+
+const Formatter = {
+    currency,
+    date
+}
 
 export default Formatter
