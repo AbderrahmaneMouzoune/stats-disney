@@ -7,29 +7,43 @@
     word-wrap: break-word;
     text-transform: uppercase;
     @include border-radius(.125rem);
-
     @include transition(all ease .2s);
 
     &-primary {
         background-color: $primary;
         border-color: $primary;
         color: $white;
+
+        &:hover, &:active, &:focus {
+            background-color: darken($primary, 10%);
+            border-color: darken($primary, 10%);
+        }
     }
 
     &-secondary {
         background-color: $secondary;
         border-color: $secondary;
         color: $white;
+
+        &:hover, &:active, &:focus {
+            background-color: darken($secondary, 10%);
+            border-color: darken($secondary, 10%);
+        }
     }
 
     &-success {
         background-color: $success;
         border-color: $success;
         color: $white;
+
+        &:hover, &:active, &:focus {
+            background-color: darken($success, 10%);
+            border-color: darken($success, 10%);
+        }
     }
 
 
     &:hover, &:active, &:focus {
-        @include box-shadow(0 5px 11px 0 rgb(0 0 0 / 18%), 0 4px 15px 0 rgb(0 0 0 / 15%));
+        @include box-shadow();
     }
 }

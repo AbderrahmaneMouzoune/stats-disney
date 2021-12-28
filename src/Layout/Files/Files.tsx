@@ -2,10 +2,10 @@ import { MDBDataTableV5 } from 'mdbreact'
 import { useState } from 'react'
 import { Container, Row, Col } from 'reactstrap'
 import Button from '../../Components/Button/Button'
-import { ColumnsFiles } from '../../config'
+import Formatter, { ColumnsFiles } from '../../config'
 
 function Files({}) {
-    const [files, setFiles] = useState(['lol.scc', 'zasazsaz'])
+    const [files, setFiles] = useState(['20211226000000_Carrefour-Voyages_booking-NALA', '20211226000000_Carrefour-Voyages_booking-NALA'])
 
     const [dataTable, setDataTable] = useState({
         columns: ColumnsFiles,
@@ -31,18 +31,23 @@ function Files({}) {
 }
 
 interface IFilesFormatted {
-    id: number;
-    filename: string;
-    download: JSX.Element;
+    Id: number;
+    Filename: string;
+    Download: JSX.Element;
+    CreationDate: string;
 }
 
 function formatFiles(files : string[]) : IFilesFormatted[] {
     return files.map((file, i) => {
         return {
-            id: i,
-            filename: `${file}`,
-            download: <Button text={'Télécharger'} type='primary' onClick={() => window.open(`${file}`)} />,
+            Id: i,
+            Filename: `${file}`,
+            Download: <Button text={'Télécharger'} type='primary' onClick={() => window.open(`${file}`)} />,
+            CreationDate: `${Formatter.date.format(
+                // new Date(`${y}-${m}-${d}`)
+            )}`
         }
     })
 }
+
 export default Files

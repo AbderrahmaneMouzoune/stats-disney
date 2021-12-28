@@ -82,19 +82,24 @@ const Formatter = {
 export const ColumnsFiles: IColumns[] = [
     {
         label: '#',
-        field: 'id',
+        field: 'Id',
         sort: 'asc',
     },
     {
         label: 'Nom du fichier',
-        field: 'filename',
+        field: 'Filename',
+        sort: 'asc',
+    },
+    {
+        label: 'Date',
+        field: 'CreationDate',
         sort: 'asc',
     },
     {
         label: '',
-        field: 'download',
+        field: 'Download',
         sort: 'disabled',
-    },
+    }
 ]
 
 export default Formatter
