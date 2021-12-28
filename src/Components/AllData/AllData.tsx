@@ -21,7 +21,7 @@ function AllData() {
                         pagesAmount={4}
                         data={dataTable}
                         hover
-                        className='box'
+                        className="box box-data"
                     />
                 </Col>
             </Row>
@@ -30,24 +30,30 @@ function AllData() {
 }
 
 interface IDataFormatted {
-    BookingId: number;
-    CreationDate: string;
-    AllocatedAmount: string;
-    Status: Status;
+    BookingId: number
+    CreationDate: string
+    AllocatedAmount: string
+    Status: Status
     Score: number
 }
 
-function formatSales() : IDataFormatted[] {
+function formatSales(): IDataFormatted[] {
     // Sales : IData
     // @ts-ignore
     return Sales.map((sale) => {
         return {
             BookingId: sale.BookingId,
-            CreationDate: `${sale.CreationDate} (${Formatter.date.format(new Date(sale.CreationDate))})`,
-            AllocatedAmount: Formatter.currency.format(sale.AllocatedAmount),
+            CreationDate: `${new Date(
+                sale.CreationDate
+            ).toLocaleDateString()} (${Formatter.date.format(
+                new Date(sale.CreationDate)
+            )})`,
+            AllocatedAmount: Formatter.currency.format(
+                Number(sale.AllocatedAmount)
+            ),
             Status: sale.Status,
-            Score: sale.Score
-        };
+            Score: sale.Score,
+        }
     })
 }
 

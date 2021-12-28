@@ -22,6 +22,14 @@ $table-border-color: #ecf3fa;
 
     // Table
 
+    .box {
+        &-data {
+            @include flexbox;
+            @include flex-wrap(wrap);
+            @include flex-direction(column-reverse);
+        }
+    }
+
     .dt-bootstrap4 {
         @extend %box !optional;
         padding: 1rem;
@@ -30,12 +38,22 @@ $table-border-color: #ecf3fa;
     .table thead th,
     .table>:not(caption)>*>* {
         border-bottom: 1px solid $table-border-color;
+        text-align: left;
+    }
+
+    .table tbody td {
+        border-right: 1px solid $table-border-color;
+
+        &:last-child {
+            border-right: none;
+        }
     }
 
     .table thead th {
         border-right: 1px solid $table-border-color;
         user-select: none;
         text-transform: uppercase;
+        padding-left: 1.25rem;
 
         &:last-child {
             border-right: none;
@@ -62,7 +80,8 @@ $table-border-color: #ecf3fa;
     table thead.mdb-dataTable-head .sorting_desc:before,
     table thead.mdb-dataTable-head .sorting_asc_disabled:before,
     table thead.mdb-dataTable-head .sorting_desc_disabled:before {
-        left: 1rem;
+        left: .25rem;
+        bottom: .6rem;
     }
 
     .d-flex {
@@ -90,6 +109,26 @@ $table-border-color: #ecf3fa;
         @include border-radius(.5rem);
         border: 1px solid $table-border-color;
         outline-color: $primary;
+        color: $primary;
+    }
+
+
+    table.table thead th {
+        color: $font-color !important;
+    }
+
+    table.table {
+        color: $font-color-light;
+    }
+
+    .bs-select select {
+        padding: .25rem;
+        cursor: pointer;
+        border-color: $table-border-color;
+        @include border-radius(5px);
+    }
+
+    .page-link {
         color: $primary;
     }
 }

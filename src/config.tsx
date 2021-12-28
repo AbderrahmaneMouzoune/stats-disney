@@ -1,12 +1,12 @@
-import { AriaAttributes } from "react"
+import { AriaAttributes } from 'react'
 
 const currency = new Intl.NumberFormat('fr-FR', {
     style: 'currency',
     currency: 'EUR',
 })
 
-const date = new Intl.DateTimeFormat('fr-FR', { 
-    dateStyle: 'full', 
+const date = new Intl.DateTimeFormat('fr-FR', {
+    dateStyle: 'full',
 })
 
 export type Status = 'Approved' | 'Declined'
@@ -40,16 +40,16 @@ export interface IData {
     custom15: any
 }
 
-type Sort = "asc" | "desc" | "disabled"
+type Sort = 'asc' | 'desc' | 'disabled'
 
 interface IColumns {
-    label: string;
-    field: string;
-    sort?: Sort;
+    label: string
+    field: string
+    sort?: Sort
     attributes?: AriaAttributes
 }
 
-export const Columns :IColumns[] = [
+export const Columns: IColumns[] = [
     {
         label: 'ID',
         field: 'BookingId',
@@ -76,7 +76,25 @@ export const Columns :IColumns[] = [
 
 const Formatter = {
     currency,
-    date
+    date,
 }
+
+export const ColumnsFiles: IColumns[] = [
+    {
+        label: '#',
+        field: 'id',
+        sort: 'asc',
+    },
+    {
+        label: 'Nom du fichier',
+        field: 'filename',
+        sort: 'asc',
+    },
+    {
+        label: '',
+        field: 'download',
+        sort: 'disabled',
+    },
+]
 
 export default Formatter

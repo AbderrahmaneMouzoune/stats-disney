@@ -1,0 +1,35 @@
+.btn {
+    cursor: pointer;
+    color: $font-color;
+    padding: 0.5rem 1.6rem;
+    border: 1px solid $font-color;
+    white-space: normal;
+    word-wrap: break-word;
+    text-transform: uppercase;
+    @include border-radius(.125rem);
+
+    @include transition(all ease .2s);
+
+    &-primary {
+        background-color: $primary;
+        border-color: $primary;
+        color: $white;
+    }
+
+    &-secondary {
+        background-color: $secondary;
+        border-color: $secondary;
+        color: $white;
+    }
+
+    &-success {
+        background-color: $success;
+        border-color: $success;
+        color: $white;
+    }
+
+
+    &:hover, &:active, &:focus {
+        @include box-shadow(0 5px 11px 0 rgb(0 0 0 / 18%), 0 4px 15px 0 rgb(0 0 0 / 15%));
+    }
+}

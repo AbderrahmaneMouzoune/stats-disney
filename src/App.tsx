@@ -1,9 +1,11 @@
 import './Styles/common.scss'
 import SideBar from './Layout/Sidebar/Sidebar'
-import { Col, Container, Row } from 'reactstrap'
-import TotalSale from './Components/TotalSale/TotalSale'
-import AllData from './Components/AllData/AllData'
 import { useState } from 'react'
+import Dashboard from './Layout/Dashboard/Dashboard'
+import { Routes, Route } from 'react-router-dom'
+import LINK from './route'
+import Files from './Layout/Files/Files'
+import { Container, Row, Col } from 'reactstrap'
 
 function App() {
     const [openNavBar, setopenNavBar] = useState(true)
@@ -19,14 +21,12 @@ function App() {
                         </Col>
                     </Row>
                 </Container>
-                <Container fluid>
-                    <Row>
-                        <Col xl={4} md={12}>
-                            <TotalSale />
-                        </Col>
-                    </Row>
-                </Container>
-                <AllData />
+
+                <Routes>
+                    <Route path="/" element={<Dashboard />} />
+                    <Route path={LINK.dashboard} element={<Dashboard />} />
+                    <Route path={LINK.fichiers} element={<Files />} />
+                </Routes>
             </main>
         </>
     )

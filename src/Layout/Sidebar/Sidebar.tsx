@@ -5,6 +5,7 @@ import classNames from 'classnames'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChartLine, faFile } from '@fortawesome/free-solid-svg-icons'
+import LINK from '../../route'
 
 interface ISidebar {
     isOpen?: boolean
@@ -24,13 +25,13 @@ function SideBar({ isOpen }: ISidebar) {
             <div className="sidebar-menu">
                 <Nav>
                     <NavItem>
-                        <NavLink tag={Link} to={'/stats'}>
+                        <NavLink tag={Link} to={LINK.dashboard}>
                             <FontAwesomeIcon icon={faChartLine} />
                             <span className={'nav-link-text'}>Dashboard</span>
                         </NavLink>
                     </NavItem>
                     <NavItem>
-                        <NavLink tag={Link} to={'/files'}>
+                        <NavLink tag={Link} to={LINK.fichiers}>
                             <FontAwesomeIcon icon={faFile} />
                             <span className={'nav-link-text'}>Fichiers</span>
                         </NavLink>
