@@ -60,9 +60,15 @@
 }
 
 // BACKGROUND GRADIENT
-@mixin background-gradient($startColor: #3C3C3C, $endColor: #999999) {
+@mixin background-gradient($startColor: #3c3c3c, $endColor: #999999) {
     background-color: $startColor;
-    background-image: -webkit-gradient(linear, left top, left bottom, from($startColor), to($endColor));
+    background-image: -webkit-gradient(
+        linear,
+        left top,
+        left bottom,
+        from($startColor),
+        to($endColor)
+    );
     background-image: -webkit-linear-gradient(top, $startColor, $endColor);
     background-image: -moz-linear-gradient(top, $startColor, $endColor);
     background-image: -ms-linear-gradient(top, $startColor, $endColor);
@@ -72,9 +78,15 @@
 }
 
 // BACKGROUND HORIZONTAL
-@mixin background-horizontal($startColor: #3C3C3C, $endColor: #999999) {
+@mixin background-horizontal($startColor: #3c3c3c, $endColor: #999999) {
     background-color: $startColor;
-    background-image: -webkit-gradient(linear, left top, right top, from($startColor), to($endColor));
+    background-image: -webkit-gradient(
+        linear,
+        left top,
+        right top,
+        from($startColor),
+        to($endColor)
+    );
     background-image: -webkit-linear-gradient(left, $startColor, $endColor);
     background-image: -moz-linear-gradient(left, $startColor, $endColor);
     background-image: -ms-linear-gradient(left, $startColor, $endColor);
@@ -84,22 +96,57 @@
 }
 
 // BACKGROUND RADIAL
-@mixin background-radial($startColor: #FFFFFF, $startPos: 0%, $endColor: #000000, $endPos:100%) {
-    background: -moz-radial-gradient(center, ellipse cover, $startColor $startPos, $endColor $endPos);
-    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop($startPos, $startColor), color-stop($endPos, $endColor));
-    background: -webkit-radial-gradient(center, ellipse cover, $startColor $startPos, $endColor $endPos);
-    background: -o-radial-gradient(center, ellipse cover, $startColor $startPos, $endColor $endPos);
-    background: -ms-radial-gradient(center, ellipse cover, $startColor $startPos, $endColor $endPos);
-    background: radial-gradient(ellipse at center, $startColor $startPos, $endColor $endPos);
+@mixin background-radial(
+    $startColor: #ffffff,
+    $startPos: 0%,
+    $endColor: #000000,
+    $endPos: 100%
+) {
+    background: -moz-radial-gradient(
+        center,
+        ellipse cover,
+        $startColor $startPos,
+        $endColor $endPos
+    );
+    background: -webkit-gradient(
+        radial,
+        center center,
+        0px,
+        center center,
+        100%,
+        color-stop($startPos, $startColor),
+        color-stop($endPos, $endColor)
+    );
+    background: -webkit-radial-gradient(
+        center,
+        ellipse cover,
+        $startColor $startPos,
+        $endColor $endPos
+    );
+    background: -o-radial-gradient(
+        center,
+        ellipse cover,
+        $startColor $startPos,
+        $endColor $endPos
+    );
+    background: -ms-radial-gradient(
+        center,
+        ellipse cover,
+        $startColor $startPos,
+        $endColor $endPos
+    );
+    background: radial-gradient(
+        ellipse at center,
+        $startColor $startPos,
+        $endColor $endPos
+    );
 }
 
 // BACKGROUND SIZE
 @mixin background-size($width: 100%, $height: $width) {
-    @if type-of($width)=='number'and $height !=null {
+    @if type-of($width) == 'number' and $height !=null {
         @include css3-prefix('background-size', $width $height);
-    }
-
-    @else {
+    } @else {
         @include css3-prefix('background-size', $width);
     }
 }
@@ -115,7 +162,12 @@
     @include css3-prefix('border-radius', $radius);
 }
 
-@mixin border-radius-separate($topLeftRadius: $base-radius, $topRightRadius: $base-radius, $bottomLeftRadius: $base-radius, $bottomRightRadius: $base-radius) {
+@mixin border-radius-separate(
+    $topLeftRadius: $base-radius,
+    $topRightRadius: $base-radius,
+    $bottomLeftRadius: $base-radius,
+    $bottomRightRadius: $base-radius
+) {
     -webkit-border-top-left-radius: $topLeftRadius;
     -webkit-border-top-right-radius: $topRightRadius;
     -webkit-border-bottom-right-radius: $bottomRightRadius;
@@ -144,21 +196,24 @@
 }
 
 // BOX RGBA
-@mixin box-rgba($r: 60, $g: 3, $b: 12, $opacity: 0.23, $color: #3C3C3C) {
+@mixin box-rgba($r: 60, $g: 3, $b: 12, $opacity: 0.23, $color: #3c3c3c) {
     background-color: transparent;
     background-color: rgba($r, $g, $b, $opacity);
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$color}', endColorstr='#{$color}');
     zoom: 1;
 }
 
-
 // BOX SHADOW
-@mixin box-shadow($x: 0, $y: 20px, $blur: 27px, $color: rgb(0 0 0 / 5%), $inset: "") {
-    @if ($inset !="") {
+@mixin box-shadow(
+    $x: 0,
+    $y: 20px,
+    $blur: 27px,
+    $color: rgb(0 0 0 / 5%),
+    $inset: ''
+) {
+    @if ($inset != '') {
         @include css3-prefix('box-shadow', $inset $x $y $blur $color);
-    }
-
-    @else {
+    } @else {
         @include css3-prefix('box-shadow', $x $y $blur $color);
     }
 }
@@ -175,7 +230,7 @@
 }
 
 // DOUBLE BORDERS
-@mixin double-borders($colorOne: #3C3C3C, $colorTwo: #999999, $radius: 0) {
+@mixin double-borders($colorOne: #3c3c3c, $colorTwo: #999999, $radius: 0) {
     border: 1px solid $colorOne;
 
     @include css3-prefix('box-shadow', 0 0 0 1px $colorTwo);
@@ -192,14 +247,20 @@
 @mixin flip($scaleX: -1) {
     @include css3-prefix('transform', scaleX($scaleX));
     filter: FlipH;
-    -ms-filter: "FlipH";
+    -ms-filter: 'FlipH';
 }
 
 // FONT FACE
-@mixin font-face($fontFamily: myFont, $eotFileSrc: 'myFont.eot', $woffFileSrc: 'myFont.woff', $ttfFileSrc: 'myFont.ttf', $svgFileSrc: 'myFont.svg', $svgFontID: '#myFont') {
+@mixin font-face(
+    $fontFamily: myFont,
+    $eotFileSrc: 'myFont.eot',
+    $woffFileSrc: 'myFont.woff',
+    $ttfFileSrc: 'myFont.ttf',
+    $svgFileSrc: 'myFont.svg',
+    $svgFontID: '#myFont'
+) {
     font-family: $fontFamily;
-    src: url($eotFileSrc) format('eot'),
-        url($woffFileSrc) format('woff'),
+    src: url($eotFileSrc) format('eot'), url($woffFileSrc) format('woff'),
         url($ttfFileSrc) format('truetype'),
         url($svgFileSrc + $svgFontID) format('svg');
 }
@@ -209,10 +270,10 @@
     $opacityMultiplied: ($opacity * 100);
 
     filter: alpha(opacity=$opacityMultiplied);
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity="+ $opacityMultiplied + ")";
+    -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=' +
+        $opacityMultiplied + ')';
     @include css3-prefix('opacity', $opacity);
 }
-
 
 // OUTLINE RADIUS
 @mixin outline-radius($radius: 5px) {
@@ -232,7 +293,7 @@
 }
 
 // TEXT SHADOW
-@mixin text-shadow($x: 2px, $y: 2px, $blur: 5px, $color: rgba(0, 0, 0, .4)) {
+@mixin text-shadow($x: 2px, $y: 2px, $blur: 5px, $color: rgba(0, 0, 0, 0.4)) {
     text-shadow: $x $y $blur $color;
 }
 
@@ -253,23 +314,28 @@
 
 // TRANSITION
 @mixin transition($properties...) {
-
-    @if length($properties)>=1 {
+    @if length($properties) >=1 {
         @include css3-prefix('transition', $properties);
-    }
-
-    @else {
-        @include css3-prefix('transition', "all 0.2s ease-in-out 0s");
+    } @else {
+        @include css3-prefix('transition', 'all 0.2s ease-in-out 0s');
     }
 }
 
 // TRIPLE BORDERS
-@mixin triple-borders($colorOne: #3C3C3C, $colorTwo: #999999, $colorThree: #000000, $radius: 0) {
+@mixin triple-borders(
+    $colorOne: #3c3c3c,
+    $colorTwo: #999999,
+    $colorThree: #000000,
+    $radius: 0
+) {
     border: 1px solid $colorOne;
 
     @include border-radius($radius);
 
-    @include css3-prefix('box-shadow', "0 0 0 1px #{$colorTwo}, 0 0 0 2px #{$colorThree}");
+    @include css3-prefix(
+        'box-shadow',
+        '0 0 0 1px #{$colorTwo}, 0 0 0 2px #{$colorThree}'
+    );
 }
 
 // KEYFRAMES

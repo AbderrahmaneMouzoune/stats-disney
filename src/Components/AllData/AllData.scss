@@ -1,9 +1,9 @@
 @import '@fortawesome/fontawesome-free/css/all.min.css';
-@import "node_modules/bootstrap/scss/functions";
-@import "node_modules/bootstrap/scss/variables";
-@import "node_modules/bootstrap/scss/mixins";
-@import "node_modules/bootstrap/scss/tables";
-@import "node_modules/bootstrap/scss/pagination";
+@import 'node_modules/bootstrap/scss/functions';
+@import 'node_modules/bootstrap/scss/variables';
+@import 'node_modules/bootstrap/scss/mixins';
+@import 'node_modules/bootstrap/scss/tables';
+@import 'node_modules/bootstrap/scss/pagination';
 @import '../../Styles/base-component.scss';
 @import '../../Styles/Components/box';
 
@@ -36,7 +36,7 @@ $table-border-color: #ecf3fa;
     }
 
     .table thead th,
-    .table>:not(caption)>*>* {
+    .table > :not(caption) > * > * {
         border-bottom: 1px solid $table-border-color;
         text-align: left;
     }
@@ -80,8 +80,8 @@ $table-border-color: #ecf3fa;
     table thead.mdb-dataTable-head .sorting_desc:before,
     table thead.mdb-dataTable-head .sorting_asc_disabled:before,
     table thead.mdb-dataTable-head .sorting_desc_disabled:before {
-        left: .25rem;
-        bottom: .6rem;
+        left: 0.25rem;
+        bottom: 0.6rem;
     }
 
     .d-flex {
@@ -105,13 +105,12 @@ $table-border-color: #ecf3fa;
     }
 
     div.mdb-datatable div.mdb-datatable-filter input {
-        padding: .5rem;
-        @include border-radius(.5rem);
+        padding: 0.5rem;
+        @include border-radius(0.5rem);
         border: 1px solid $table-border-color;
         outline-color: $primary;
         color: $primary;
     }
-
 
     table.table thead th {
         color: $font-color !important;
@@ -122,7 +121,7 @@ $table-border-color: #ecf3fa;
     }
 
     .bs-select select {
-        padding: .25rem;
+        padding: 0.25rem;
         cursor: pointer;
         border-color: $table-border-color;
         @include border-radius(5px);

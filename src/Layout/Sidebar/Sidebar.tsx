@@ -19,7 +19,7 @@ function SideBar({ isOpen }: ISidebar) {
             })}
         >
             <div className="sidebar-header">
-                <h3>{'APPNAME'}</h3>
+                <h3>{'Distats'}</h3>
             </div>
             <hr />
             <div className="sidebar-menu">

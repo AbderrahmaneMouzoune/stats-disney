@@ -3,7 +3,7 @@
 main {
     margin-left: 8rem;
     margin-top: 1rem;
-    @include transition(all ease-in-out .1s);
+    @include transition(all ease-in-out 0.1s);
 }
 
 .sidebar {
@@ -23,8 +23,7 @@ main {
     @include align-content(flex-start);
     @include justify-content(flex-start);
     @include align-items(flex-start);
-    @include transition(all .1s ease-in-out);
-
+    @include transition(all 0.1s ease-in-out);
 
     // Separator
     hr {
@@ -42,11 +41,10 @@ main {
         }
     }
 
-
     // Menu
     &-menu {
         width: 100%;
-        margin-top: .25rem;
+        margin-top: 0.25rem;
     }
 
     .nav-link {
@@ -57,7 +55,7 @@ main {
         font-family: $font-family-title;
         color: $font-color;
 
-        @include border-radius(.25rem);
+        @include border-radius(0.25rem);
         @include flexbox();
 
         &:hover {
@@ -65,11 +63,10 @@ main {
             color: $primary;
         }
 
-
         .nav-link-text {
             width: 0;
             opacity: 0;
-            @include transition(all ease-in-out .2s);
+            @include transition(all ease-in-out 0.2s);
         }
 
         svg {
@@ -77,24 +74,22 @@ main {
         }
     }
 
-
-
-    &-is-active, &:hover {
+    &-is-active,
+    &:hover {
         width: 100% !important;
 
-        &+main {
+        & + main {
             margin-left: 18.5rem !important;
-            @include transition(all ease-in-out .2s);
+            @include transition(all ease-in-out 0.2s);
         }
-
 
         .nav-link {
             &-text {
                 opacity: 1 !important;
                 width: fit-content !important;
-                margin-left: .7rem !important;
+                margin-left: 0.7rem !important;
                 @include flex(1);
-                @include transition(all ease-in-out .2s);
+                @include transition(all ease-in-out 0.2s);
             }
         }
     }

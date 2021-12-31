@@ -1,8 +1,8 @@
-@import "node_modules/bootstrap/scss/functions";
-@import "node_modules/bootstrap/scss/variables";
-@import "node_modules/bootstrap/scss/mixins";
-@import "node_modules/bootstrap/scss/containers";
-@import "node_modules/bootstrap/scss/grid";
+@import 'node_modules/bootstrap/scss/functions';
+@import 'node_modules/bootstrap/scss/variables';
+@import 'node_modules/bootstrap/scss/mixins';
+@import 'node_modules/bootstrap/scss/containers';
+@import 'node_modules/bootstrap/scss/grid';
 
 @import './variable';
 @import './Functions/global.scss';
@@ -26,7 +26,7 @@ body {
 }
 
 hr {
-    @include opacity(.25);
+    @include opacity(0.25);
     height: 1px;
     margin: 1rem 0;
 }

@@ -99,7 +99,7 @@ export const ColumnsFiles: IColumns[] = [
         label: '',
         field: 'Download',
         sort: 'disabled',
-    }
+    },
 ]
 
 export default Formatter
