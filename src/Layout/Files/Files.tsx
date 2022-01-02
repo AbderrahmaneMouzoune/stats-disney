@@ -1,32 +1,45 @@
+import axios from 'axios'
 import { MDBDataTableV5 } from 'mdbreact'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Container, Row, Col } from 'reactstrap'
+import API from '../../API'
 import Button from '../../Components/Button/Button'
 import Formatter, { ColumnsFiles } from '../../config'
 
 function Files({}) {
-    const [files, setFiles] = useState([
-        '20211226000000_Carrefour-Voyages_booking-NALA',
-        '20211226000000_Carrefour-Voyages_booking-NALA',
-    ])
+    const [files, setFiles] = useState([])
+    const [isLoading, setIsLoading] = useState(true)
 
-    const [dataTable, setDataTable] = useState({
-        columns: ColumnsFiles,
-        rows: formatFiles(files),
+    useEffect(() => {
+        if (!isLoading) return
+
+        axios
+            .get(API.FILES)
+            .then(function (response) {
+                setFiles(response.data)
+            })
+            .catch(function (error) {
+                console.log(error)
+            })
+            .then(function () {
+                setIsLoading(false)
+            })
     })
 
     return (
         <Container fluid className={'all-data'}>
             <Row>
                 <Col xs={12}>
-                    <MDBDataTableV5
-                        entriesOptions={[5, 20, 25]}
-                        entries={5}
-                        pagesAmount={4}
-                        data={dataTable}
-                        hover
-                        className="box box-data"
-                    />
+                    {!isLoading && (
+                        <MDBDataTableV5
+                            data={{
+                                columns: ColumnsFiles,
+                                rows: formatFiles(files),
+                            }}
+                            hover
+                            className="box box-data"
+                        />
+                    )}
                 </Col>
             </Row>
         </Container>
@@ -42,20 +55,25 @@ interface IFilesFormatted {
 
 function formatFiles(files: string[]): IFilesFormatted[] {
     return files.map((file, i) => {
+        const y = file.slice(0, 4)
+        const m = file.slice(4, 6)
+        const d = file.slice(6, 8)
+
         return {
-            Id: i,
+            Id: i + 1,
             Filename: `${file}`,
             Download: (
                 <Button
                     text={'Télécharger'}
                     type="primary"
-                    onClick={() => window.open(`${file}`)}
+                    onClick={() =>
+                        window.open(`${API.FILES_REPOSITORY}${file}`)
+                    }
                 />
             ),
-            CreationDate: `${Formatter.date
-                .format
-                // new Date(`${y}-${m}-${d}`)
-                ()}`,
+            CreationDate: `${Formatter.date.format(
+                new Date(`${y}-${m}-${d}`)
+            )}`,
         }
     })
 }

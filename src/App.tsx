@@ -9,7 +9,6 @@ import { Container, Row, Col } from 'reactstrap'
 
 function App() {
     const [openNavBar, setopenNavBar] = useState(true)
-
     return (
         <>
             <SideBar isOpen={openNavBar} />

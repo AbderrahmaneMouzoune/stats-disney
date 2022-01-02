@@ -9,6 +9,12 @@ const date = new Intl.DateTimeFormat('fr-FR', {
     dateStyle: 'full',
 })
 
+const dateShort = new Intl.DateTimeFormat('fr-FR', {
+    day: '2-digit',
+    month: 'short',
+    year: 'numeric',
+})
+
 export type Status = 'Approved' | 'Declined'
 
 export interface IData {
@@ -74,11 +80,6 @@ export const Columns: IColumns[] = [
     },
 ]
 
-const Formatter = {
-    currency,
-    date,
-}
-
 export const ColumnsFiles: IColumns[] = [
     {
         label: '#',
@@ -101,5 +102,11 @@ export const ColumnsFiles: IColumns[] = [
         sort: 'disabled',
     },
 ]
+
+const Formatter = {
+    currency,
+    date,
+    dateShort,
+}
 
 export default Formatter

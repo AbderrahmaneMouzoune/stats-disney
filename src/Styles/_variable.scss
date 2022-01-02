@@ -4,10 +4,12 @@ $secondary: hsl(345deg, 93%, 58%);
 $sucess: hsl(102deg, 67%, 44%);
 $base-radius: 1rem;
 $background-base: hsl(0, 0%, 100%);
+$border-color-base: #ecf3fa;
 
 // Font
 $font-color: hsl(0, 0%, 17%);
-$font-color-light: hsl(208deg, 7%, 46%);
+// $font-color-light: hsl(208deg, 7%, 46%);
+$font-color-light: hsla(0deg, 0%, 17%, 54%);
 $font-family-text: 'Roboto', sans-serif;
 $font-family-title: 'Rubik', sans-serif;
 $font-size-title: 1.5rem;
@@ -16,3 +18,4 @@ $font-size-paragraph: 0.875rem;
 
 $white: #fff;
 $black: #000;
+$table-border-color: $border-color-base;

@@ -1,0 +1,51 @@
+@import '../../Styles/base-component.scss';
+
+.chart-left {
+    padding: 2.25rem 0 2.25rem 2.25rem;
+    margin: 0;
+    border-right: 1px solid $border-color-base;
+    height: 100%;
+}
+
+.legend {
+    margin-bottom: 2.25rem;
+
+    h5 {
+        line-height: 2.25rem;
+        font-weight: 500;
+    }
+
+    p {
+        font-size: 0.875rem;
+    }
+}
+
+.day-option {
+    &-wrapper {
+        @include flexbox;
+        @include flex-direction(row);
+        @include justify-content(flex-start);
+        gap: 1rem;
+        padding: 2.25rem 0;
+
+        li {
+            width: fit-content;
+            font-family: ($font-family-title);
+            font-weight: 500;
+            cursor: pointer;
+            @include transition(all ease 0.2s);
+            user-select: none;
+            color: lighten($font-color-light, 20%);
+
+            &:hover {
+                color: darken($font-color-light, 20%);
+                @include transition(all ease 0.2s);
+            }
+
+            &.is-active {
+                color: $primary;
+                @include transition(all ease 0.2s);
+            }
+        }
+    }
+}

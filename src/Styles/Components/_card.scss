@@ -1,6 +1,7 @@
 .card {
     position: relative;
     word-wrap: break-word;
+    margin-top: 1rem;
 
     @include flexbox();
     @include flex-direction(column);
